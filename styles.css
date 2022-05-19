@@ -1,0 +1,97 @@
+
+/*Basic calculator layout*/
+.calculator {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "clear clear plus_minus division"
+      "seven eight nine multiplication"
+      "four five six subtraction"
+      "one two three addition"
+      "zero period equals equals";;
+}
+
+.clear {
+    grid-area: clear;
+}
+
+.plus_minus {
+    grid-area: plus_minus;
+}
+
+.division {
+    grid-area: division;
+}
+
+.multiplication {
+    grid-area: multiplication;
+}
+
+.addition {
+    grid-area: addition;
+}
+
+.subtraction {
+    grid-area: subtraction;
+}
+
+.equals {
+    grid-area: equals;
+}
+
+.period {
+    grid-area: period;
+}
+
+.one {
+    grid-area: one;
+}
+
+.two {
+    grid-area: two;
+}
+
+.three {
+    grid-area: three;
+}
+
+.four {
+    grid-area: four;
+}
+
+.five {
+    grid-area: five;
+}
+
+.six {
+    grid-area: six;
+}
+
+.seven {
+    grid-area: seven;
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.nine {
+    grid-area: nine;
+}
+
+.zero {
+    grid-area: zero;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "clear clear plus_minus division"
+      "seven eight nine multiplication"
+      "four five six subtraction"
+      "one two three addition"
+      "zero period equals equals";;
+}
