@@ -1,15 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+}
+
+h1 {
+    margin: 10% 2% 2% 2%;
+}
+
+.about {
+    margin: 2% 2% 10% 2%;
+}
+
 
 /*Basic calculator layout*/
 .calculator {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: auto;
+    grid-template-columns: 6rem 6rem 6rem 6rem ;
+    grid-template-rows: 4rem 4rem 4rem 4rem;
     grid-template-areas: 
+      "screen screen screen screen"
       "clear clear plus_minus division"
       "seven eight nine multiplication"
       "four five six subtraction"
       "one two three addition"
-      "zero period equals equals";;
+      "zero zero period equals";
+}
+
+.all {
+    justify-self: stretch;
+    height: 4rem;
+}
+
+.answer {
+    grid-area: screen;
+    justify-self: end;
 }
 
 .clear {
@@ -84,14 +110,4 @@
     grid-area: zero;
 }
 
-.calculator {
-    display: grid;
-    grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: auto;
-    grid-template-areas: 
-      "clear clear plus_minus division"
-      "seven eight nine multiplication"
-      "four five six subtraction"
-      "one two three addition"
-      "zero period equals equals";;
-}
+
