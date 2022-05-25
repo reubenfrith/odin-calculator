@@ -78,11 +78,14 @@ Perform operation and retiurn result
 
 /* BUTTONS */
 
+//let operationObject = {numberOne: 'Data', numberTwo: ' ', operation: 'operand'};
+let numberOne = [];
 
-const addition = document.querySelector('.addition');
-addition.addEventListener("click", () => add());
+let  numbers = document.querySelectorAll('.number');
+console.log(typeof numbers)
+console.log(numbers)
+numbers.forEach(number => number.addEventListener("click", (e) => numberOne.push(e.target.innerHTML))); // then join sequence of numbers until an operation is clicked this will
+// fotm the number One 
+//then once operation is clicked , this will be operand , then enter second number and store . Then perform operation -> begina again
 
-const addition = document.querySelector('.seven');
-let numberOne = addition.addEventListener("click", (e) => this.value);
-
-
+//console.log(someObject.aProperty);
