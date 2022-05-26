@@ -84,8 +84,39 @@ let numberOne = [];
 let  numbers = document.querySelectorAll('.number');
 console.log(typeof numbers)
 console.log(numbers)
-numbers.forEach(number => number.addEventListener("click", (e) => numberOne.push(e.target.innerHTML))); // then join sequence of numbers until an operation is clicked this will
+numbers.forEach(number => number.addEventListener("click", 
+function(e) 
+{if (operation == null) {
+        numberOne.push(e.target.innerHTML)
+    }
+}));
+
+//numberOne is the first number for the function
+
+let operation ;
+
+let  operands = document.querySelectorAll('.operator');
+console.log(typeof operands)
+console.log(operands)
+operands.forEach(operand => operand.addEventListener("click", (e) => operation = e.target.innerHTML));
+
+
+let numberTwo = [];
+
+console.log(typeof numbers)
+console.log(numbers)
+numbers.forEach(number => number.addEventListener("click", 
+function(e) 
+{if (operation != null) {
+        numberTwo.push(e.target.innerHTML)
+    }
+}));
+
+// then join sequence of numbers until an operation is clicked this will
 // fotm the number One 
 //then once operation is clicked , this will be operand , then enter second number and store . Then perform operation -> begina again
+
+
+
 
 //console.log(someObject.aProperty);
