@@ -40,29 +40,11 @@ function divide(firstNumber, secondNumber) {
 OPERATE
 - takes initial number, operater and second number (in that order) and returns result
 */
-function operate(firstNumber, secondNumber, operator) {
+/* function operate(firstNumber, secondNumber, operator) {
     return operator(Number(firstNumber),Number(secondNumber));
-}
+}*/
 
-/*
-function operate(operator, a, b) {
-  a = Number(a)
-  b = Number(b)
-  switch (operator) {
-    case '+':
-      return add(a, b)
-    case '−':
-      return substract(a, b)
-    case '×':
-      return multiply(a, b)
-    case '÷':
-      if (b === 0) return null
-      else return divide(a, b)
-    default:
-      return null
-  }
-}
-*/
+
 
 
 
@@ -78,45 +60,57 @@ Perform operation and retiurn result
 
 /* BUTTONS */
 
-//let operationObject = {numberOne: 'Data', numberTwo: ' ', operation: 'operand'};
 let numberOne = [];
-
 let  numbers = document.querySelectorAll('.number');
-console.log(typeof numbers)
-console.log(numbers)
 numbers.forEach(number => number.addEventListener("click", 
 function(e) 
 {if (operation == null) {
-        numberOne.push(e.target.innerHTML)
+        numberOne.push(Number(e.target.innerHTML))
     }
 }));
 
 //numberOne is the first number for the function
 
-let operation ;
 
+let operation ;
 let  operands = document.querySelectorAll('.operator');
-console.log(typeof operands)
-console.log(operands)
 operands.forEach(operand => operand.addEventListener("click", (e) => operation = e.target.innerHTML));
 
-
 let numberTwo = [];
-
-console.log(typeof numbers)
-console.log(numbers)
 numbers.forEach(number => number.addEventListener("click", 
 function(e) 
 {if (operation != null) {
-        numberTwo.push(e.target.innerHTML)
+        numberTwo.push(Number(e.target.innerHTML))
     }
 }));
 
-// then join sequence of numbers until an operation is clicked this will
-// fotm the number One 
-//then once operation is clicked , this will be operand , then enter second number and store . Then perform operation -> begina again
+function operate(operation, numberOne, numberTwo) {
+    a = numberOne.join('');
+    b = numberTwo.join('');
+    switch (operation) {
+      case '+':
+        return add(a, b)
+      case '-':
+        return subtract(a, b)
+      case 'x':
+        return multiply(a, b)
+      case '÷':
+        return divide(a, b)
+      default:
+        return null
+    }
+  }
 
 
+let  equals = document.querySelector('.equals');
+let ans;
+equals.addEventListener("click", function() {
+    ans = operate(operation, numberOne, numberTwo)
+    console.log(ans)
 
-
-//console.log(someObject.aProperty);
+    // reset values
+    numberOne = [ans];
+    numberTwo = [];
+    operation = null;
+}
+)
