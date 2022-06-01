@@ -4,7 +4,7 @@ ADD
 - addition takes two numbers and returns result
 */
 function add(firstNumber, secondNumber) {
-    return firstNumber + secondNumber
+  return firstNumber + secondNumber
 }
 
 /*
@@ -45,7 +45,7 @@ OPERATE
 }*/
 
 
-
+let answer = document.querySelector('.answer');
 
 
 /*
@@ -65,7 +65,8 @@ let  numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener("click", 
 function(e) 
 {if (operation == null) {
-        numberOne.push(Number(e.target.innerHTML))
+        numberOne.push(e.target.innerHTML)
+        answer.textContent += e.target.innerHTML;
     }
 }));
 
@@ -74,43 +75,63 @@ function(e)
 
 let operation ;
 let  operands = document.querySelectorAll('.operator');
-operands.forEach(operand => operand.addEventListener("click", (e) => operation = e.target.innerHTML));
+operands.forEach(operand => operand.addEventListener("click", function(e) {
+  operation = e.target.innerHTML
+  answer.textContent += e.target.innerHTML}
+));
 
 let numberTwo = [];
 numbers.forEach(number => number.addEventListener("click", 
 function(e) 
 {if (operation != null) {
-        numberTwo.push(Number(e.target.innerHTML))
+        numberTwo.push(e.target.innerHTML)
+        answer.textContent += e.target.innerHTML;
+
     }
 }));
 
 function operate(operation, numberOne, numberTwo) {
-    a = numberOne.join('');
-    b = numberTwo.join('');
-    switch (operation) {
-      case '+':
-        return add(a, b)
-      case '-':
-        return subtract(a, b)
-      case 'x':
-        return multiply(a, b)
-      case '÷':
-        return divide(a, b)
-      default:
-        return null
-    }
+  if (numberOne.length == 0 || numberTwo.length == 0) {
+    return NaN
   }
+  a = Number(numberOne.join(''));
+  b = Number(numberTwo.join(''));
+  switch (operation) {
+    case '+':
+      return add(a, b)
+    case '-':
+      return subtract(a, b)
+    case 'x':
+      return multiply(a, b)
+    case '÷':
+      return divide(a, b)
+    default:
+      return a
+  }
+}
 
 
 let  equals = document.querySelector('.equals');
 let ans;
 equals.addEventListener("click", function() {
     ans = operate(operation, numberOne, numberTwo)
-    console.log(ans)
+    if (isNaN(ans)) {
+      ans = 'Use Numbers ROOKIE'
+    }
+    answer.textContent = ans
 
-    // reset values
-    numberOne = [ans];
-    numberTwo = [];
-    operation = null;
+  // reset values to continue calculations
+  numberOne = [ans];
+  numberTwo = [];
+  operation = null;
 }
 )
+
+
+let  clear = document.querySelector('.clear');
+clear.addEventListener("click", function() {
+  answer.textContent = ''
+  numberOne = [];
+  numberTwo = [];
+  operation = null;
+})
