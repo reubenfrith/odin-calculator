@@ -76,9 +76,23 @@ function(e)
 let operation ;
 let  operands = document.querySelectorAll('.operator');
 operands.forEach(operand => operand.addEventListener("click", function(e) {
+  if (operation == null) {
   operation = e.target.innerHTML
   answer.textContent += e.target.innerHTML}
-));
+  else if (operation != null) {
+    ans = operate(operation, numberOne, numberTwo)
+    if (isNaN(ans)) {
+      ans = 'Use Numbers ROOKIE'
+    }
+    answer.textContent = ans
+
+  // reset values to continue calculations
+  numberOne = [ans];
+  numberTwo = [];
+  operation = e.target.innerHTML
+  answer.textContent += e.target.innerHTML
+  }
+}));
 
 let numberTwo = [];
 numbers.forEach(number => number.addEventListener("click", 
@@ -86,7 +100,6 @@ function(e)
 {if (operation != null) {
         numberTwo.push(e.target.innerHTML)
         answer.textContent += e.target.innerHTML;
-
     }
 }));
 
@@ -127,10 +140,10 @@ equals.addEventListener("click", function() {
 }
 )
 
-
 let  clear = document.querySelector('.clear');
 clear.addEventListener("click", function() {
   answer.textContent = ''
+  //operands.forEach(operand => operand.disabled = false)
   numberOne = [];
   numberTwo = [];
   operation = null;
