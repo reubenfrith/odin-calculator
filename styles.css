@@ -13,14 +13,13 @@ h1 {
     margin: 2% 2% 10% 2%;
 }
 
-
 /*Basic calculator layout*/
 .calculator {
     display: grid;
     grid-template-columns: 6rem 6rem 6rem 6rem ;
     grid-template-rows: 4rem 4rem 4rem 4rem;
     grid-template-areas: 
-      "screen screen screen screen"
+      "answer answer answer answer"
       "clear clear clear clear"
       "seven eight nine division"
       "four five six multiplication"
@@ -34,8 +33,11 @@ h1 {
 }
 
 .answer {
-    grid-area: screen;
-    place-self: center end;
+    grid-area: answer;
+    display: grid;
+    justify-content: right;
+    align-items: center;
+    border: 1px solid ;
 }
 
 .clear {
