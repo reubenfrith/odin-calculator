@@ -16,7 +16,7 @@ function subtract(firstNumber, secondNumber) {
 MULITPLY
 */
 function multiply(firstNumber, secondNumber) {
-    return firstNumber * secondNumber
+    return firstNumber*secondNumber
 }
 
 /*
@@ -24,7 +24,7 @@ DIVIDE
 */
 function divide(firstNumber, secondNumber) {
   if (secondNumber == 0) {
-      return "ROOKIE"
+      return NaN
   }
   else {
       return firstNumber / secondNumber
@@ -45,9 +45,9 @@ function operate(operation, numberOne, numberTwo) {
   switch (operation) {
     case '+':
       return add(a, b)
-    case '-':
+    case '−':
       return subtract(a, b)
-    case 'x':
+    case '×':
       return multiply(a, b)
     case '÷':
       return divide(a, b)
@@ -93,7 +93,7 @@ operands.forEach(operand => operand.addEventListener("click", function(e) {
   else if (operation != null) {
     ans = operate(operation, numberOne, numberTwo)
     if (isNaN(ans)) {
-      ans = 'Use Numbers ROOKIE'
+      ans = 'UsE NuMbErS'
     }
     answer.textContent = ans
 
@@ -128,7 +128,7 @@ let ans;
 equals.addEventListener("click", function() {
     ans = operate(operation, numberOne, numberTwo)
     if (isNaN(ans)) {
-      ans = 'Use Numbers ROOKIE'
+      ans = 'UsE NuMbErS'
     }
     answer.textContent = ans
 
