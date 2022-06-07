@@ -4,4 +4,4 @@ The Odin Project Assignment: Calculator
 This project utilises Javascript, HTML and CSS. All made by me - feel free to provide any feedback, message me on [twitter](https://twitter.com/reubenfrith).<br>
 The goal was to make a simple calculator!<br>
 
-Have a play here
+Have a play [here](https://learner1unknown.github.io/odin-calculator/).
