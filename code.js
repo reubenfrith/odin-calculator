@@ -56,6 +56,21 @@ function operate(operation, numberOne, numberTwo) {
   }
 }
 
+/*
+Function to display answers nicely
+*/
+
+function displayAnswer(x) {
+  let convertToString = x.toString()
+  if (convertToString.length > 9 && x < 999999999 ){
+    x = x.toFixed(4)
+  }
+  else if (convertToString.length > 9 && x > 999999999 ) {
+    x = x.toExponential(3)
+  }
+  return x
+}
+
 // select the div where answer is to be displayed
 
 let answer = document.querySelector('.answer');
@@ -95,7 +110,7 @@ operands.forEach(operand => operand.addEventListener("click", function(e) {
     if (isNaN(ans)) {
       ans = 'UsE NuMbErS'
     }
-    answer.textContent = ans
+    answer.textContent = displayAnswer(ans)
 
   // reset values to continue calculations
   numberOne = [ans];
@@ -130,7 +145,7 @@ equals.addEventListener("click", function() {
     if (isNaN(ans)) {
       ans = 'UsE NuMbErS'
     }
-    answer.textContent = ans
+    answer.textContent = displayAnswer(ans)
 
   // reset values to continue calculations
   numberOne = [ans];
